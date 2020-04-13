@@ -20,15 +20,15 @@ export default function CartTotals({ value }) {
             </Link>
             <h5>
               <span className="text-title">Subtotal: </span>
-              <strong>£{cartSubTotal}</strong>
+              <strong>£{cartSubTotal.toFixed(2)}</strong>
             </h5>
             <h5>
               <span className="text-title">Tax: </span>
-              <strong>£{cartTax}</strong>
+              <strong>£{cartTax.toFixed(2)}</strong>
             </h5>
             <h5>
               <span className="text-title">Total: </span>
-              <strong>£{cartTotal}</strong>
+              <strong>£{cartTotal.toFixed(2)}</strong>
             </h5>
           </div>
         </div>

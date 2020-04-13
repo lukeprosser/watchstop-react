@@ -9,7 +9,7 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
-    cart: storeProducts,
+    cart: [],
     modalOpen: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
@@ -70,7 +70,7 @@ class ProductProvider extends Component {
         products: tempProducts,
         cart: [ ...this.state.cart, product ]
       }
-    }, () => { console.log(this.state) });
+    }, () => { this.addTotals(); }); // Calculate updated totals
   }
 
   openModal = id => {
@@ -99,11 +99,56 @@ class ProductProvider extends Component {
   }
 
   removeItem = id => {
-    console.log('Remove item from cart');
+    let tempProducts = [ ...this.state.products ];
+    let tempCart = [ ...this.state.cart ];
+    // Remove item from cart with matching id
+    tempCart = tempCart.filter(item => item.id !== id);
+    // Locate removed product position in all products
+    const index = tempProducts.indexOf(this.getItem(id));
+    // Set product with correct position
+    let removedProduct = tempProducts[index];
+    // Reset product values
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+    // Update state with updated product info and cart
+    this.setState(() => {
+      return {
+        cart: [ ...tempCart ],
+        products: [ ...tempProducts ]
+      }
+    }, () => { this.addTotals(); }); // Calculate updated totals
   }
 
   clearCart = () => {
-    console.log('Clear cart');
+    this.setState(() => {
+      return {
+        cart: []
+      }
+    }, () => {
+      // Set modified objects back to defaults
+      // (again, uses copies instead of reference)
+      this.setProducts();
+      this.addTotals();
+    });
+  }
+
+  addTotals = () => {
+    let subTotal = 0;
+    // Sum all item totals in cart
+    this.state.cart.map(item => (subTotal += item.total));
+    // Calculate tax
+    const tax = subTotal * 0.2;
+    // Calculate total
+    const total = subTotal + tax;
+    // Set totals in state (converted to strings with 2 decimal places in view)
+    this.setState(() => {
+      return {
+        cartSubTotal: subTotal,
+        cartTax: tax,
+        cartTotal: total
+      }
+    });
   }
 
   render() {
