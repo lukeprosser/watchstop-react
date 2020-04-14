@@ -19,21 +19,23 @@ export default class Modal extends Component {
               <ModalContainer>
                 <div className="container">
                   <div className="row">
-                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize p-5">
-                      <h5>Item added to the cart</h5>
-                      <img src={img} className="img-fluid" alt="Product" />
+                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-5">
+                      <h5 className="mb-4">Item added to the cart</h5>
+                      <img src={img} className="img-fluid mb-4" alt="Product" />
                       <h5>{title}</h5>
                       <h5 className="text-muted">Price: £{price}</h5>
-                      <Link to="/">
-                        <ButtonContainer onClick={() => closeModal()}>
-                          Continue Shopping
-                        </ButtonContainer>
-                      </Link>
-                      <Link to="/cart">
-                        <ButtonContainer cart onClick={() => closeModal()}>
-                          Go To Cart
-                        </ButtonContainer>
-                      </Link>
+                      <div className="mt-4">
+                        <Link to="/">
+                          <ButtonContainer className="my-2" onClick={() => closeModal()}>
+                            Return
+                          </ButtonContainer>
+                        </Link>
+                        <Link to="/cart">
+                          <ButtonContainer cart className="my-2" onClick={() => closeModal()}>
+                            Go To Cart
+                          </ButtonContainer>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -58,6 +60,6 @@ const ModalContainer = styled.div`
   justify-content: center;
 
   #modal {
-    background: var(--cd-white);
+    background: var(--ws-white);
   }
 `;

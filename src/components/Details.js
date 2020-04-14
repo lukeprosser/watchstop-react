@@ -11,10 +11,10 @@ export default class Details extends Component {
           const { id, brand, img, info, price, title, inCart } = value.detailProduct;
 
           return (
-            <div className="container py-5">
+            <div className="container mt-5">
               {/* Title */}
                 <div className="row">
-                  <div className="col-10 mx-auto text-center my-5">
+                  <div className="col-10 mx-auto text-center mb-1">
                     <h3>{title}</h3>
                   </div>
                 </div>
@@ -25,20 +25,20 @@ export default class Details extends Component {
                   <img src={img} className="img-fluid" alt="Product" />
                 </div>
                 {/* Product Text */}
-                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                <div className="col-10 mx-auto col-md-6 my-3">
                   <h4>Model: {title}</h4>
-                  <h5 className="text-title text-uppercase text-muted mt-3 mb-2">Brand: <span className="text-uppercase">{brand}</span></h5>
+                  <h5 className="text-muted mt-3 mb-2">Brand: {brand}</h5>
                   <h6>
                     <strong>
                       Price: <span>£</span>{price}
                     </strong>
                   </h6>
                   <p className="text-capitalize font-weight-bold mt-3 mb-0">Product Information:</p>
-                  <p className="text-muted lead">{info}</p>
+                  <p className="text-muted">{info}</p>
                   {/* Buttons */}
                   <div>
                     <Link to="/">
-                      <ButtonContainer>Back to Products</ButtonContainer>
+                      <ButtonContainer>Back</ButtonContainer>
                     </Link>
                     <ButtonContainer 
                       cart

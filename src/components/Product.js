@@ -10,10 +10,10 @@ export default class Product extends Component {
 
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
-        <div className="card">
+        <div className="product-container">
           <ProductConsumer>
             {(value) => (
-              <div className="img-container p-5" onClick={() => value.handleDetail(id)}>
+              <div className="img-container" onClick={() => value.handleDetail(id)}>
                 <Link to="/details">
                   <img src={img} alt="Product" className="card-img-top" />
                 </Link>
@@ -33,14 +33,14 @@ export default class Product extends Component {
             )}
           </ProductConsumer>
           {/* Card footer */}
-          <div className="card-footer d-flex justify-content-between">
-            <p className="align-self-center mb-0">
+          <div className="product-info d-flex justify-content-between">
+            <p className="product-title align-self-center mb-0">
               {title}
             </p>
-            <h5 className="font-italic mb-0">
+            <p className="mb-0">
               <span className="mr-1">£</span>
               {price}
-            </h5>
+            </p>
           </div>
         </div>
       </ProductWrapper>
@@ -59,28 +59,6 @@ Product.propTypes = {
 }
 
 const ProductWrapper = styled.div`
-  .card {
-    border-color: transparent;
-    transition: all 0.4s linear;
-  }
-
-  .card-footer {
-    background: transparent;
-    border-top: transparent;
-    transition: all 0.4s linear;
-  }
-
-  &:hover {
-    .card {
-      border: 0.04rem solid rgba(0, 0, 0, 0.2);
-      box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.02);
-    }
-
-    .card-footer {
-      background: rgba(247, 247, 247);
-    }
-  }
-
   .img-container {
     position: relative;
     overflow: hidden;
@@ -91,7 +69,7 @@ const ProductWrapper = styled.div`
   }
 
   .img-container:hover .card-img-top {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   .cart-btn {
@@ -99,13 +77,13 @@ const ProductWrapper = styled.div`
     bottom: 0;
     right: 0;
     padding: 0.2rem 0.4rem;
-    background: var(--cd-primary);
+    background: var(--ws-black);
     border: none;
     border-radius: 0.5rem 0 0 0;
-    color: var(--cd-white);
-    font-size: 1.4rem;
+    color: var(--ws-white);
+    font-size: 1.3rem;
     transform: translate(100%, 100%);
-    transition: all 0.2s linear;
+    transition: all 0.2s ease-in-out;
   }
 
   .img-container:hover .cart-btn {
@@ -113,6 +91,15 @@ const ProductWrapper = styled.div`
   }
 
   .cart-btn:hover {
-    background: var(--cd-secondary);
+    background: var(--ws-red);
+  }
+
+  .product-info {
+    background: rgba(247, 247, 247);
+    padding: 0.7rem;
+  }
+
+  .product-title {
+    letter-spacing: 1px;
   }
 `;

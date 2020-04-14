@@ -9,8 +9,8 @@ export default class Navbar extends Component {
     return (
       <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
         <ul className="navbar-nav align-items-center">
-          <li className="nav-item ml-5">
-            <Link to="/" className="nav-link">
+          <li>
+            <Link to="/" className="navbar-brand text-uppercase">
               WatchStop
             </Link>
           </li>
@@ -29,10 +29,10 @@ export default class Navbar extends Component {
 }
 
 const NavWrapper = styled.nav`
-  background: var(--cd-dark);
+  background: var(--ws-black);
 
   .nav-link {
-    color: var(--cd-white) !important;
+    color: var(--ws-white) !important;
     font-size: 1.3rem;
     text-transform: capitalize;
   }

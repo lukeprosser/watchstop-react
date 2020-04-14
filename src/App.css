@@ -1,52 +1,80 @@
 :root {
-  --cd-primary: #009ffd;
-  --cd-secondary: #ffa400;
-  --cd-dark: #232528;
-  --cd-white: #f3f3f3;
+  --ws-black: #232528;
+  --ws-white: #f3f3f3;
+  --ws-red: #dc3545;
+  --ws-red-hover: #c82333;
 }
 
 body {
+  background: var(--ws-white) !important;
+  color: var(--ws-black) !important;
   font-family: 'Raleway', sans-serif !important;
-  background: var(--cd-white) !important;
-  color: var(--cd-dark) !important;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
 }
 
 .text-title {
-  letter-spacing: 0.3rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.qty {
-  background: transparent;
-  text-transform: uppercase;
-  font-size: 0.8rem !important;
-  color: var(--cd-dark);
-  border-radius: 0 !important;
-  border: 0.1rem solid var(--cd-dark) !important;
-  padding: 0 0.5rem !important;
+.cart-row {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.btn-qty {
+.qty {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
   background: transparent;
+  color: var(--ws-black);
+  border-radius: 0;
+  border: 0.1rem solid var(--ws-black);
+  font-size: 0.8rem;
   text-transform: uppercase;
-  font-size: 1rem !important;
-  color: var(--cd-dark);
-  border-radius: 0 !important;
-  border: 0.1rem solid var(--cd-dark) !important;
-  padding: 0 0.5rem !important;
+}
+
+.btn-qty {
+  padding: 0 0.5rem;
+  background: transparent;
+  color: var(--ws-black);
+  border-radius: 0;
+  border: 0.1rem solid var(--ws-black);
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 .btn-qty:hover {
-  background: var(--cd-dark) !important;
-  color: var(--cd-white) !important;
+  background: var(--ws-black) !important;
+  color: var(--ws-white) !important;
 }
 
 .cart-icon {
   cursor: pointer;
+  color: var(--ws-black);
   font-size: 1.2rem;
-  color:var(--cd-dark);
 }
 .cart-icon:hover {
-  color: red;
+  color: var(--ws-red);
+}
+
+.total-container {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  background-color: var(--ws-black);
+  color: var(--ws-white);
 }
