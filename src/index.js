@@ -10,9 +10,7 @@ import { ProductProvider } from './context'; // Give entire application access t
 ReactDOM.render(
   <ProductProvider>
     <Router>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </Router>
   </ProductProvider>,
   document.getElementById('root')
