@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter as Router } from 'react-router-dom'; // Give entire application access to routes
 import { ProductProvider } from './context'; // Give entire application access to state
